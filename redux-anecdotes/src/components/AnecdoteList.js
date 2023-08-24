@@ -9,20 +9,21 @@ const AnecdoteList = () => {
     }
     return anecdotes.filter(anecdote => anecdote.content.includes(filter))
   })
+
+  const copyAnecdotes = [...anecdotes]
   const dispatch = useDispatch()
 
   const vote = (id) => {
     dispatch(Vote(id))
   }
 
-  
   function comparison(a, b) {
     return b.votes - a.votes 
   }
 
   return (
     <>
-    {anecdotes.sort(comparison).map(anecdote =>
+    {copyAnecdotes.sort(comparison).map(anecdote =>
       <div key={anecdote.id}>
         <div>
           {anecdote.content}
