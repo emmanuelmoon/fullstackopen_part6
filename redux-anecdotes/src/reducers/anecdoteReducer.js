@@ -46,7 +46,6 @@ export const createAnecdote = (content) => {
 export const increaseVote = (id) => {
   return async (dispatch, getState) => {
     const anecdotes = getState().anecdotes
-    console.log(anecdotes)
     const anecdoteToChange = anecdotes.find(a => a.id === id)
     const changedAnecdote = {
       ...anecdoteToChange,
