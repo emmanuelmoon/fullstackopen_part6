@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 
-import { Vote } from '../reducers/anecdoteReducer'
+import { increaseVote } from '../reducers/anecdoteReducer'
 
 import { setNotification, removeNotification } from '../reducers/notificationReducer'
 
@@ -16,7 +16,7 @@ const AnecdoteList = () => {
   const dispatch = useDispatch()
 
   const vote = (id) => {
-    dispatch(Vote(id))
+    dispatch(increaseVote(id))
     const anecdote = copyAnecdotes.find(a => a.id === id)
 
     dispatch(setNotification(`you voted '${anecdote.content}'`))
