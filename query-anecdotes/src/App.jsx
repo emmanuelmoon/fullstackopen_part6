@@ -22,7 +22,7 @@ const App = () => {
         dispatch({ type: 'CLEAR' })
       }, 5000)
       queryClient.invalidateQueries({ queryKey: ['anecdotes'] })
-    },
+    }
   })
 
   const handleVote = (anecdoteToChange) => {

@@ -14,6 +14,12 @@ const AnecdoteForm = () => {
       }, 5000)
       queryClient.invalidateQueries({ queryKey: ['anecdotes'] })
     },
+    onError: (err) => {
+      dispatch({ type: 'ERROR', payload: err.message })
+      setTimeout(() => {
+        dispatch({type: 'CLEAR'})
+      }, 5000)
+    }
   })
 
   const onCreate = (event) => {
